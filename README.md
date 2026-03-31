@@ -14,7 +14,6 @@ The UI is designed using Tailwind CSS and Material UI to provide a modern and re
 * React (Vite)
 * Tailwind CSS (v3)
 * Material UI (MUI)
-* Axios
 * Redux Toolkit (optional)
 
 ---
@@ -78,48 +77,6 @@ http://localhost:5173/
 * View Task List
 * Filter and Search Tasks
 * Responsive UI
-
----
-
-### API ENDPOINTS (USED)
-
-```id="db82j3"
-GET     /api/tasks
-POST    /api/tasks
-PUT     /api/tasks/:id
-DELETE  /api/tasks/:id
-```
-
----
-
-### ENVIRONMENT VARIABLES
-
-Create a `.env` file in the root directory:
-
-```id="mps2kf"
-VITE_API_BASE_URL=http://localhost:5000
-```
-
----
-
-### SCRIPTS
-
-```id="a9w2hs"
-npm run dev
-npm run build
-npm run preview
-```
-
----
-
-### FUTURE ENHANCEMENTS
-
-* Authentication (JWT)
-* Dashboard with analytics
-* Role-based access
-* Deployment (AWS / Vercel)
-* Testing (Unit / Integration)
-
 ---
 
 ### AUTHOR
