@@ -8,7 +8,9 @@ const USER_INITIAL = 'S'
 
 const Navbar = () => {
   return (
-    <nav className='container z-10 sticky left-0 right-0 top-0 py-3 px-5 lg:px-10 flex items-center justify-between'>
+    <nav className='container mx-auto z-50 sticky top-0 py-3 px-5 lg:px-10 flex items-center justify-between 
+    backdrop-blur-md bg-white/70 dark:bg-gray-900/70
+    shadow-md border-b border-gray-200 dark:border-gray-700 flex-wrap'>
       <AppTitle />
       <UserInfo />
     </nav>
