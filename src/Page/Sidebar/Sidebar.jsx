@@ -1,8 +1,56 @@
-import { Avatar } from '@mui/material'
+import { Avatar, Button } from '@mui/material'
 import React from 'react'
 import './Sidebar.css'
+import { useState } from 'react'
+
+
+const menu = [
+  {
+    name: "Home",
+    value: "Home",
+    role: ["ROLE_ADMIN", "ROLE_CUSTOMER"]
+  },
+  {
+    name: "DONE",
+    value: "DONE",
+    role: ["ROLE_ADMIN", "ROLE_CUSTOMER"]
+  },
+  {
+    name: "ASSIGNED",
+    value: "ASSIGNED",
+    role: ["ROLE_ADMIN"]
+  },
+  {
+    name: "NOT ASSIGNED",
+    value: "PENDING",
+    role: ["ROLE_ADMIN"]
+  },
+  {
+    name: "Create New Task",
+    value: "",
+    role: ["ROLE_ADMIN"]
+  },
+  {
+    name: "Notification",
+    value: "NOTIFICATION",
+    role: ["ROLE_CUSTOMER"]
+  },
+]
+
+const role="ROLE_ADMIN"
 
 export const Sidebar = () => {
+
+  const [activeMenu, setActiveMenu] = useState("DONE")
+  const handleMenuChange=(item)=>
+    {setActiveMenu(item.name)
+
+    }
+
+    const handleLogout=()=>{
+      console.log("log out successfully")
+    }
+
   return (
     <div className='card min-h-[85vh] flex flex-col justify-center fixed w-[20vw]'>
       <div className='space-y-5 h-full'>
@@ -11,6 +59,25 @@ export const Sidebar = () => {
           className='border-2 border-violet-600'
             src='' />
         </div>
+
+        {
+          menu.filter((item) => item.role.includes(role))
+          .map((item, index) => 
+            <div key={index} 
+              onClick={() => handleMenuChange(item)}
+              className={`py-3 px-5 rounded-full text-center cursor-pointer 
+              ${activeMenu===item.name?"activeMenuItem":"menuItem"}`}>
+                <span>{item.name}</span>
+              </div>
+            )
+        }
+
+        <Button onClick={handleLogout}
+        sx={{padding:".7rem", borderRadius:"2rem"}} fullWidth 
+        className='logoutButton '>
+          logout
+        </Button>
+
       </div>
     </div>
   )
