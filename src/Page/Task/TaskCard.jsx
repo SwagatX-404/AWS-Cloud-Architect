@@ -1,7 +1,25 @@
-import { IconButton } from '@mui/material'
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { IconButton, Menu, MenuItem } from '@mui/material'
 import React from 'react'
 
+const role="ROLE_ADMIN"
 const TaskCard = () => {
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openMenu = Boolean(anchorEl);
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () =>{
+    setAnchorEl(null);
+  };
+
+  const handleOpenUserList=()=>{}
+  const handleOpenSubmissionList=()=>{}
+  const handleOpenUpdateTaskModel=()=>{}
+  const handleDeleteTask=()=>{}
+
   return (
     <div>
         <div className='card lg:flex justify-between'>
@@ -28,9 +46,30 @@ const TaskCard = () => {
             </div>
 
             <div>
-              <IconButton>
-                
+              <IconButton onClick={handleMenuClick}>
+                <MoreVertIcon/>
               </IconButton>
+
+              <Menu
+              id='basic-menu'
+              anchorEl={anchorEl}
+              open={openMenu}
+              onClose={handleMenuClose}
+              MenuListProps={{
+                'aria-labelledby':'basic-button'
+              }}>
+                {
+                  role==="ROLE_ADMIN"?<>
+                <MenuItem onClick={handleOpenUserList}>Assigned User</MenuItem>
+                <MenuItem onClick={handleOpenSubmissionList}>See Submissions</MenuItem>
+                <MenuItem onClick={handleOpenUpdateTaskModel}>Edit</MenuItem>
+                <MenuItem onClick={handleDeleteTask}>Delete</MenuItem>
+
+                
+
+                  </>:<></>
+                }
+              </Menu>
             </div>
         </div>
     </div>
