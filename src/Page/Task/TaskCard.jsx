@@ -1,6 +1,6 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton, Menu, MenuItem } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 
 const role="ROLE_ADMIN"
 const TaskCard = () => {
@@ -15,7 +15,15 @@ const TaskCard = () => {
     setAnchorEl(null);
   };
 
-  const handleOpenUserList=()=>{}
+  const [openUserList, setOpenUserList] = useState(false);
+
+  const handleCloseUserList=()=>{
+    setOpenUserList(false);
+  }
+  const handleOpenUserList=()=>{
+    setOpenUserList(true);
+    handleMenuClose()
+  }
   const handleOpenSubmissionList=()=>{}
   const handleOpenUpdateTaskModel=()=>{}
   const handleDeleteTask=()=>{}
