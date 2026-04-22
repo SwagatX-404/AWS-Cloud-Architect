@@ -3,6 +3,7 @@ import { IconButton, Menu, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
 import UserList from './UserList';
 import SubmissionList from './SubmissionList';
+import EditTaskForm from './EditTaskCard';
 
 const role="ROLE_ADMIN"
 const TaskCard = () => {
@@ -35,7 +36,16 @@ const TaskCard = () => {
     setOpenSubmissionList(true)
     handleMenuClose()
   }
-  const handleOpenUpdateTaskModel=()=>{}
+
+   const [openUpdateTaskForm, setOpenUpdateTaskForm] = useState(false);
+  const handleCloseUpdateTaskForm=()=>{
+    setOpenUpdateTaskForm(false);
+  }
+
+  const handleOpenUpdateTaskModel=()=>{
+    setOpenUpdateTaskForm(true)
+    handleMenuClose()
+  }
   const handleDeleteTask=()=>{}
 
   return (
@@ -93,6 +103,7 @@ const TaskCard = () => {
 
         <UserList open={openUserList} handleClose={handleCloseUserList}/>
         <SubmissionList open={openSubmissionList} handleClose={handleCloseSubmissionList}/>
+        <EditTaskForm open={openUpdateTaskForm} handleClose={handleCloseUpdateTaskForm}/>
     </div>
   )
 }
