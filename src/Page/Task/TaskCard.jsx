@@ -1,6 +1,8 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton, Menu, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
+import UserList from './UserList';
+import SubmissionList from './SubmissionList';
 
 const role="ROLE_ADMIN"
 const TaskCard = () => {
@@ -16,7 +18,6 @@ const TaskCard = () => {
   };
 
   const [openUserList, setOpenUserList] = useState(false);
-
   const handleCloseUserList=()=>{
     setOpenUserList(false);
   }
@@ -24,7 +25,16 @@ const TaskCard = () => {
     setOpenUserList(true);
     handleMenuClose()
   }
-  const handleOpenSubmissionList=()=>{}
+
+ const [openSubmissionList, setOpenSubmissionList] = useState(false);
+  const handleCloseSubmissionList=()=>{
+    setOpenSubmissionList(false);
+  }
+
+  const handleOpenSubmissionList=()=>{
+    setOpenSubmissionList(true)
+    handleMenuClose()
+  }
   const handleOpenUpdateTaskModel=()=>{}
   const handleDeleteTask=()=>{}
 
@@ -67,19 +77,22 @@ const TaskCard = () => {
                 'aria-labelledby':'basic-button'
               }}>
                 {
-                  role==="ROLE_ADMIN"?<>
+                  role==="ROLE_ADMIN"? (
+                  <>
                 <MenuItem onClick={handleOpenUserList}>Assigned User</MenuItem>
                 <MenuItem onClick={handleOpenSubmissionList}>See Submissions</MenuItem>
                 <MenuItem onClick={handleOpenUpdateTaskModel}>Edit</MenuItem>
                 <MenuItem onClick={handleDeleteTask}>Delete</MenuItem>
-
-                
-
-                  </>:<></>
-                }
+                </>
+                ):(
+                <></>
+                )}
               </Menu>
             </div>
         </div>
+
+        <UserList open={openUserList} handleClose={handleCloseUserList}/>
+        <SubmissionList open={openSubmissionList} handleClose={handleCloseSubmissionList}/>
     </div>
   )
 }
