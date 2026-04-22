@@ -46,7 +46,10 @@ const TaskCard = () => {
     setOpenUpdateTaskForm(true)
     handleMenuClose()
   }
-  const handleDeleteTask=()=>{}
+  const handleDeleteTask=()=>{
+    
+    handleMenuClose()
+  }
 
   return (
     <div>
