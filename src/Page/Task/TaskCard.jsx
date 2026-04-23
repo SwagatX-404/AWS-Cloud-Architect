@@ -5,7 +5,7 @@ import UserList from './UserList';
 import SubmissionList from './SubmissionList';
 import EditTaskForm from './EditTaskCard';
 
-const role="ROLE_ADMIN"
+const role = "ROLE_ADMIN"
 const TaskCard = () => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -14,99 +14,99 @@ const TaskCard = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = () =>{
+  const handleMenuClose = () => {
     setAnchorEl(null);
   };
 
   const [openUserList, setOpenUserList] = useState(false);
-  const handleCloseUserList=()=>{
+  const handleCloseUserList = () => {
     setOpenUserList(false);
   }
-  const handleOpenUserList=()=>{
+  const handleOpenUserList = () => {
     setOpenUserList(true);
     handleMenuClose()
   }
 
- const [openSubmissionList, setOpenSubmissionList] = useState(false);
-  const handleCloseSubmissionList=()=>{
+  const [openSubmissionList, setOpenSubmissionList] = useState(false);
+  const handleCloseSubmissionList = () => {
     setOpenSubmissionList(false);
   }
 
-  const handleOpenSubmissionList=()=>{
+  const handleOpenSubmissionList = () => {
     setOpenSubmissionList(true)
     handleMenuClose()
   }
 
-   const [openUpdateTaskForm, setOpenUpdateTaskForm] = useState(false);
-  const handleCloseUpdateTaskForm=()=>{
+  const [openUpdateTaskForm, setOpenUpdateTaskForm] = useState(false);
+  const handleCloseUpdateTaskForm = () => {
     setOpenUpdateTaskForm(false);
   }
 
-  const handleOpenUpdateTaskModel=()=>{
+  const handleOpenUpdateTaskModel = () => {
     setOpenUpdateTaskForm(true)
     handleMenuClose()
   }
-  const handleDeleteTask=()=>{
-    
+  const handleDeleteTask = () => {
+
     handleMenuClose()
   }
 
   return (
     <div>
-        <div className='card lg:flex justify-between'>
-            <div className='lg:flex gap-5 items-center space-y-2 w-[90%] lg:w-[70%]'>
+      <div className='card lg:flex justify-between'>
+        <div className='lg:flex gap-5 items-center space-y-2 w-[90%] lg:w-[70%]'>
 
-              <div className=''>
-                <img className='lg:w-[7rem] lg:h-[7rem] object-cover' 
-                src="" alt="" />
-              </div>
+          <div className=''>
+            <img className='lg:w-[7rem] lg:h-[7rem] object-cover'
+              src="" alt="" />
+          </div>
 
-              <div className='space-y-5'>
-                <div className='space-y-2'>
-                  <h1> Car Rental Website</h1>
-                  <p>Use a latest frameworks and technology to make this website</p>
-                </div>
-
-                <div className='flex flex-wrap gap-2 items-center'>
-                  {[1,1,1,1].map((item)=><span className='py-1 px-5 rounded-full techStack'>
-                      Angular
-                  </span>)}
-                </div>
-              </div>
-
+          <div className='space-y-5'>
+            <div className='space-y-2'>
+              <h1> Car Rental Website</h1>
+              <p>Use a latest frameworks and technology to make this website</p>
             </div>
 
-            <div>
-              <IconButton onClick={handleMenuClick}>
-                <MoreVertIcon/>
-              </IconButton>
-
-              <Menu
-              id='basic-menu'
-              anchorEl={anchorEl}
-              open={openMenu}
-              onClose={handleMenuClose}
-              MenuListProps={{
-                'aria-labelledby':'basic-button'
-              }}>
-                {
-                  role==="ROLE_ADMIN"? (
-                  <>
-                <MenuItem onClick={handleOpenUserList}>Assigned User</MenuItem>
-                <MenuItem onClick={handleOpenSubmissionList}>See Submissions</MenuItem>
-                <MenuItem onClick={handleOpenUpdateTaskModel}>Edit</MenuItem>
-                <MenuItem onClick={handleDeleteTask}>Delete</MenuItem>
-                </>
-                ):(
-                <></>
-                )}
-              </Menu>
+            <div className='flex flex-wrap gap-2 items-center'>
+              {[1, 1, 1, 1].map((item) => <span className='py-1 px-5 rounded-full techStack'>
+                Angular
+              </span>)}
             </div>
+          </div>
+
         </div>
 
-        <UserList open={openUserList} handleClose={handleCloseUserList}/>
-        <SubmissionList open={openSubmissionList} handleClose={handleCloseSubmissionList}/>
-        <EditTaskForm open={openUpdateTaskForm} handleClose={handleCloseUpdateTaskForm}/>
+        <div>
+          <IconButton onClick={handleMenuClick}>
+            <MoreVertIcon />
+          </IconButton>
+
+          <Menu
+            id='basic-menu'
+            anchorEl={anchorEl}
+            open={openMenu}
+            onClose={handleMenuClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button'
+            }}>
+            {
+              role === "ROLE_ADMIN" ? (
+                <>
+                  <MenuItem onClick={handleOpenUserList}>Assigned User</MenuItem>
+                  <MenuItem onClick={handleOpenSubmissionList}>See Submissions</MenuItem>
+                  <MenuItem onClick={handleOpenUpdateTaskModel}>Edit</MenuItem>
+                  <MenuItem onClick={handleDeleteTask}>Delete</MenuItem>
+                </>
+              ) : (
+                <></>
+              )}
+          </Menu>
+        </div>
+      </div>
+
+      <UserList open={openUserList} handleClose={handleCloseUserList} />
+      <SubmissionList open={openSubmissionList} handleClose={handleCloseSubmissionList} />
+      <EditTaskForm open={openUpdateTaskForm} handleClose={handleCloseUpdateTaskForm} />
     </div>
   )
 }
