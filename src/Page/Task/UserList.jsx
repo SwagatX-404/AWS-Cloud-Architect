@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function UserList({handleClose,open}) {
+export default function UserList({ handleClose, open }) {
 
   return (
     <div>
@@ -30,7 +30,7 @@ export default function UserList({handleClose,open}) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             User List
           </Typography>
-         
+
         </Box>
       </Modal>
     </div>
