@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function SubmissionList({handleClose,open}) {
+export default function SubmissionList({ handleClose, open }) {
 
   return (
     <div>
@@ -30,7 +30,7 @@ export default function SubmissionList({handleClose,open}) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Submission List
           </Typography>
-          
+
         </Box>
       </Modal>
     </div>
