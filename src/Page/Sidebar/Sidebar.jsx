@@ -37,44 +37,44 @@ const menu = [
   },
 ]
 
-const role="ROLE_ADMIN"
+const role = "ROLE_ADMIN"
 
 export const Sidebar = () => {
 
   const [activeMenu, setActiveMenu] = useState("DONE")
-  const handleMenuChange=(item)=>
-    {setActiveMenu(item.name)
+  const handleMenuChange = (item) => {
+    setActiveMenu(item.name)
 
-    }
+  }
 
-    const handleLogout=()=>{
-      console.log("log out successfully")
-    }
+  const handleLogout = () => {
+    console.log("log out successfully")
+  }
 
   return (
     <div className='card min-h-[85vh] flex flex-col justify-center fixed w-[20vw]'>
       <div className='space-y-5 h-full'>
         <div className='flex justify-center'>
           <Avatar sx={{ width: "8rem", height: "8rem" }}
-          className='border-2 border-violet-600'
+            className='border-2 border-violet-600'
             src='' />
         </div>
 
         {
           menu.filter((item) => item.role.includes(role))
-          .map((item, index) => 
-            <div key={index} 
-              onClick={() => handleMenuChange(item)}
-              className={`py-3 px-5 rounded-full text-center cursor-pointer 
-              ${activeMenu===item.name?"activeMenuItem":"menuItem"}`}>
+            .map((item, index) =>
+              <div key={index}
+                onClick={() => handleMenuChange(item)}
+                className={`py-3 px-5 rounded-full text-center cursor-pointer 
+              ${activeMenu === item.name ? "activeMenuItem" : "menuItem"}`}>
                 <span>{item.name}</span>
               </div>
             )
         }
 
         <Button onClick={handleLogout}
-        sx={{padding:".7rem", borderRadius:"2rem"}} fullWidth 
-        className='logoutButton '>
+          sx={{ padding: ".7rem", borderRadius: "2rem" }} fullWidth
+          className='logoutButton '>
           logout
         </Button>
 
