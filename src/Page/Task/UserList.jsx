@@ -12,12 +12,12 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  outline:"none",
+  outline: "none",
   boxShadow: 24,
   p: 2,
 };
 
-const tasks=[1,1,1,1]
+const tasks = [1, 1, 1, 1]
 
 export default function UserList({ handleClose, open }) {
 
@@ -30,29 +30,29 @@ export default function UserList({ handleClose, open }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         {
-          tasks.map((item,index)=>
-            <>
-            <div className='flex items-center justify-between w-full'>
-            <div>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar src=''/>
-                </ListItemAvatar>
+          {
+            tasks.map((item, index) =>
+              <>
+                <div className='flex items-center justify-between w-full'>
+                  <div>
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatar src='' />
+                      </ListItemAvatar>
 
-                <ListItemText secondary="@code_with_swg" primary={"Code with Swg"}/>
-              </ListItem>
-            </div>
-            <div>
-              <button className='customeButton'>select</button>
-            </div>
+                      <ListItemText secondary="@code_with_swg" primary={"Code with Swg"} />
+                    </ListItem>
+                  </div>
+                  <div>
+                    <button className='customeButton'>select</button>
+                  </div>
 
-          </div>
-            {index!==tasks.length-1 && <Divider variant='inset'/>}
-            </>
-          
-          )
-         }
+                </div>
+                {index !== tasks.length - 1 && <Divider variant='inset' />}
+              </>
+
+            )
+          }
 
         </Box>
       </Modal>
