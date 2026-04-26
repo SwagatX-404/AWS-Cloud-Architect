@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
     background: linear-gradient(135deg, #1a0b19, #150d2d, #162134) !important;
     color: white !important;
     overflow-x: hidden !important;
@@ -11,21 +11,21 @@ body{
 }
 
 
-.card{
+.card {
     background-color: #0c071b;
     border-radius: 8px;
     box-shadow: rgba rgba(215, 106, 255, 0.507) 0px 0px 20px;
-    padding: 1rem;  
-    
+    padding: 1rem;
+
 }
 
-.techStack{
-    color:#c24dd0;
+.techStack {
+    color: #c24dd0;
     border: 2px solid #c24dd0;
     padding: 0.5rem 2rem;
 }
 
-.customeButton{
-background-image: linear-gradient(150deg, #c24dd0, #7a7a7a);
-color: white !important;
+.customeButton {
+    background-image: linear-gradient(150deg, #c24dd0, #7a7a7a);
+    color: white !important;
 }
