@@ -39,7 +39,7 @@ const menu = [
 
 const role = "ROLE_ADMIN"
 
-export const Sidebar = () => {
+const Sidebar = () => {
 
   const [activeMenu, setActiveMenu] = useState("DONE")
   const handleMenuChange = (item) => {
@@ -82,3 +82,6 @@ export const Sidebar = () => {
     </div>
   )
 }
+
+
+export default Sidebar
