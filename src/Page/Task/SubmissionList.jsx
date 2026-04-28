@@ -16,6 +16,8 @@ const style = {
   p: 4,
 };
 
+const submission=[1,1,1]
+
 export default function SubmissionList({ handleClose, open }) {
 
   return (
@@ -27,9 +29,14 @@ export default function SubmissionList({ handleClose, open }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Submission List
-          </Typography>
+          <div>
+            {submission.length>0?<SubmissionCard/>:<div className=''>
+            <div className='text-center'>
+              No Submission Found
+            </div>
+          </div>}
+          </div>
+          
 
         </Box>
       </Modal>
