@@ -10,7 +10,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 500,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -31,7 +31,9 @@ export default function SubmissionList({ handleClose, open }) {
       >
         <Box sx={style}>
           <div>
-            {submission.length>0?<SubmissionCard/>:<div className=''>
+            {submission.length>0?<div className='space-y-2'>
+              {submission.map((item)=><SubmissionCard/>)}
+              </div>:<div className=''>
             <div className='text-center'>
               No Submission Found
             </div>
