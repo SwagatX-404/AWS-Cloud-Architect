@@ -1,7 +1,14 @@
 import React from 'react'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { IconButton } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 const SubmissionCard = () => {
+  const handleAcceptDecline=(status)=>{
+    console.log(status)
+  }
   return (
     <div className='round-md bg-black p-5 flex items-center justify-between'>
       <div className='space-y-2'>
@@ -25,7 +32,21 @@ const SubmissionCard = () => {
 
       <div>
         {
-           
+           true?<div className='flex gap-5'>
+            <div className='text-red-500'>
+              <IconButton color="error" onClick={()=>handleAcceptDecline("DECLINED")}>
+                <CloseIcon/>
+              </IconButton>
+            </div>
+
+            <div className='text-red-500'>
+
+
+            </div>
+
+           </div>:<Button color={true?"success":"error"} size="small" variant="outlined">
+            Accept
+           </Button>
         }
       </div>
       
