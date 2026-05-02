@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 const SubmissionCard = () => {
-  const handleAcceptDecline=(status)=>{
+  const handleAcceptDecline = (status) => {
     console.log(status)
   }
   return (
@@ -15,9 +15,9 @@ const SubmissionCard = () => {
         <div className='flex items-center gap-2'>
           <span>Git hub :</span>
           <div className='flex items-center gap-2 text-[#c24dd0]'>
-            <OpenInNewIcon/>
+            <OpenInNewIcon />
             <a href="/" target='_blank' rel='noopener noreferrer'>
-               Go to Link
+              Go to Link
             </a>
 
           </div>
@@ -25,17 +25,17 @@ const SubmissionCard = () => {
         <div className='flex items-center gap-2 text-xs '>
           <p>Submission Time : </p>
           <p className='text-gray--400'> 2024-01-18T22:15:39.517343</p>
-          
+
         </div>
 
       </div>
 
       <div>
         {
-           true?<div className='flex gap-5'>
+          true ? <div className='flex gap-5'>
             <div className='text-red-500'>
-              <IconButton color="error" onClick={()=>handleAcceptDecline("DECLINED")}>
-                <CloseIcon/>
+              <IconButton color="error" onClick={() => handleAcceptDecline("DECLINED")}>
+                <CloseIcon />
               </IconButton>
             </div>
 
@@ -44,12 +44,12 @@ const SubmissionCard = () => {
 
             </div>
 
-           </div>:<Button color={true?"success":"error"} size="small" variant="outlined">
+          </div> : <Button color={true ? "success" : "error"} size="small" variant="outlined">
             Accept
-           </Button>
+          </Button>
         }
       </div>
-      
+
     </div>
   )
 }
