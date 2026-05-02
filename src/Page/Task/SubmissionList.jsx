@@ -17,7 +17,7 @@ const style = {
   p: 4,
 };
 
-const submission=[1,1,1]
+const submission = [1, 1, 1]
 
 export default function SubmissionList({ handleClose, open }) {
 
@@ -31,15 +31,15 @@ export default function SubmissionList({ handleClose, open }) {
       >
         <Box sx={style}>
           <div>
-            {submission.length>0?<div className='space-y-2'>
-              {submission.map((item)=><SubmissionCard/>)}
-              </div>:<div className=''>
-            <div className='text-center'>
-              No Submission Found
-            </div>
-          </div>}
+            {submission.length > 0 ? <div className='space-y-2'>
+              {submission.map((item) => <SubmissionCard />)}
+            </div> : <div className=''>
+              <div className='text-center'>
+                No Submission Found
+              </div>
+            </div>}
           </div>
-          
+
 
         </Box>
       </Modal>
