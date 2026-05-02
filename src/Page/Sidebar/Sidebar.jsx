@@ -2,6 +2,7 @@ import { Avatar, Button } from '@mui/material'
 import React from 'react'
 import './Sidebar.css'
 import { useState } from 'react'
+import CreateNewTaskForm from '../Task/CreateTask'
 
 
 const menu = [
@@ -42,7 +43,21 @@ const role = "ROLE_ADMIN"
 const Sidebar = () => {
 
   const [activeMenu, setActiveMenu] = useState("DONE")
+
+  const [openCreateTaskForm, setOpenUpdateTaskForm] = useState(false);
+      const handleCloseUpdateTaskForm = () => {
+        setOpenUpdateTaskForm(false);
+      }
+    
+      const handleOpenUpdateTaskModel = () => {
+        setOpenUpdateTaskForm(true)
+
+      }
   const handleMenuChange = (item) => {
+
+    if(item.name=="Create New task"){
+        handleOpenUpdateTaskModel()
+    }
     setActiveMenu(item.name)
 
   }
@@ -52,6 +67,7 @@ const Sidebar = () => {
   }
 
   return (
+    <>
     <div className='card min-h-[85vh] flex flex-col justify-center fixed w-[20vw]'>
       <div className='space-y-5 h-full'>
         <div className='flex justify-center'>
@@ -80,6 +96,9 @@ const Sidebar = () => {
 
       </div>
     </div>
+
+    <CreateNewTaskForm open={openCreateTaskForm} handleClose={handleCloseUpdateTaskForm} />
+    </>
   )
 }
 
