@@ -19,6 +19,8 @@ const style = {
 
 export default function CreateNewTaskForm({ handleClose, open }) {
 
+  const [formData, setFormData]
+
   return (
     <div>
       <Modal
@@ -28,9 +30,19 @@ export default function CreateNewTaskForm({ handleClose, open }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Create New Task Form
-          </Typography>
+          <form>
+            <Grid container spacing={2} alignItems="center">
+              <Grid item xs={12}>
+                <TextField
+                label="Title"
+                fullWidth
+                name='title'
+                value={FormData.title}
+                />
+              </Grid>
+            </Grid>
+          </form>
+    
 
         </Box>
       </Modal>
