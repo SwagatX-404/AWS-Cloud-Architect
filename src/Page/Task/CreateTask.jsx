@@ -19,7 +19,28 @@ const style = {
 
 export default function CreateNewTaskForm({ handleClose, open }) {
 
-  const [formData, setFormData]
+  const [formData, setFormData]=useState({
+    title:"",
+    image:"",
+    description:"",
+    tags:[],
+    deadline:new Date(),
+  })
+
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const handleChange =(e) =>{
+    const {name, value} = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+
+  const handleTagsChange=(event, value)=>{
+      setSelectedTags(value);
+
+  }
 
   return (
     <div>
@@ -38,6 +59,39 @@ export default function CreateNewTaskForm({ handleClose, open }) {
                 fullWidth
                 name='title'
                 value={FormData.title}
+                onChange={handleChange}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                label="Image"
+                fullWidth
+                name='image'
+                value={FormData.image}
+                onChange={handleChange}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                label="Description"
+                fullWidth
+                multiline
+                rows={4}
+                name='description'
+                value={FormData.description}
+                onChange={handleChange}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                label=""
+                fullWidth
+                name=''
+                value={FormData.title}
+                onChange={handleChange}
                 />
               </Grid>
             </Grid>
